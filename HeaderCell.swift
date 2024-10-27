@@ -1,12 +1,6 @@
 import UIKit
 
-class HeaderCell: UITableViewCell {
-    var viewModel: TableViewModel.ViewModelType.TitleInfo? {
-        didSet {
-            updateView()
-        }
-    }
-    
+class HeaderView: UIView {
     private lazy var promocodeTitleLabel: UILabel = {
         let label = UILabel()
         label.text = "Промокоды"
@@ -27,39 +21,30 @@ class HeaderCell: UITableViewCell {
         return label
     }()
     
-    private func updateView() {
-        guard let viewModel else {
-            return
-        }
-        
-        promocodeTitleLabel.text = viewModel.title
-        promocodeSubtitleLabel.text = viewModel.info
-    }
-    
     private func setupView() {
-        contentView.addSubview(promocodeTitleLabel)
-        contentView.addSubview(promocodeSubtitleLabel)
+        addSubview(promocodeTitleLabel)
+        addSubview(promocodeSubtitleLabel)
         
         promocodeTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         promocodeSubtitleLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            promocodeTitleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 24),
-            promocodeTitleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20),
-            promocodeTitleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -20),
+            promocodeTitleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 24),
+            promocodeTitleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 20),
+            promocodeTitleLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -20),
             
             promocodeSubtitleLabel.topAnchor.constraint(equalTo: promocodeTitleLabel.bottomAnchor, constant: 10),
-            promocodeSubtitleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20),
-            promocodeSubtitleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -20),
-            promocodeSubtitleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
+            promocodeSubtitleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 20),
+            promocodeSubtitleLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -20),
+            promocodeSubtitleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8)
         ])
     }
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setupView()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

@@ -2,6 +2,7 @@ import UIKit
 
 struct Order {
     struct Promocode {
+        let id: String
         let title: String
         let percent: Int
         let endDate: Date?
@@ -14,7 +15,6 @@ struct Order {
         let title: String
     }
 
-//    var screenTitle: String
     var promocodes: [Promocode]
     let products: [Product]
     let paymentDiscount: Double?

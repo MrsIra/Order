@@ -1,7 +1,7 @@
 import UIKit
 
-class TotalCell: UITableViewCell {
-    var viewModel: TableViewModel.ViewModelType.Result? {
+class TotalView: UIView {
+    var result: ViewModel.Result? {
         didSet {
             updateUI()
         }
@@ -15,13 +15,15 @@ class TotalCell: UITableViewCell {
         return label
     }()
     
-    private lazy var priceProductsValue: UILabel = {
+    private lazy var priceProductsValue: UILabel = defaultLabel()
+
+    var defaultLabel = {
         let label = UILabel()
         label.textColor = .black
         label.font = UIFont(name: "Roboto", size: 14)
         return label
-    }()
-    
+    }
+
     private lazy var productDiscountsHeader: UILabel = {
         let label = UILabel()
         label.text = "Скидки"
@@ -94,11 +96,11 @@ class TotalCell: UITableViewCell {
     }()
     
     private func updateUI() {
-        guard let viewModel else {
+        guard let result else {
             return
         }
         
-        let amountProducts: Int = viewModel.amountProducts % 10
+        let amountProducts: Int = result.amountProducts % 10
         var declensionWord: String = ""
         
         switch amountProducts {
@@ -110,41 +112,41 @@ class TotalCell: UITableViewCell {
             declensionWord = "товаров"
         }
         
-        priceProductsHeader.text = "Цена за \(viewModel.amountProducts) \(declensionWord)"
-        priceProductsValue.text = "\(viewModel.price)"
-        
-        if let baseDiscount = viewModel.baseDiscount {
+        priceProductsHeader.text = "Цена за \(result.amountProducts) \(declensionWord)"
+        priceProductsValue.text = "\(result.price)"
+
+        if let baseDiscount = result.baseDiscount {
             productDiscountsValue.text = "\(baseDiscount)"
         }
         
-        promocodesValue.text = "\(viewModel.promocodesDiscount)"
-        
-        if let paymentDiscount = viewModel.paymentDiscount {
+        promocodesValue.text = "\(result.promocodesDiscount)"
+
+        if let paymentDiscount = result.paymentDiscount {
             paymentMethodValue.text = "\(paymentDiscount)"
         }
-        let total: Double = viewModel.price - ((viewModel.baseDiscount ?? 0) + (viewModel.paymentDiscount ?? 0))
-        lineTotalValue.text = "\(total)"
+        
+        lineTotalValue.text = "\(result.price)"
     }
     
     private func setupUI() {
-        contentView.backgroundColor = UIColor(named: "ColorNewGray")
-        
-        contentView.addSubview(priceProductsHeader)
-        contentView.addSubview(priceProductsValue)
-        
-        contentView.addSubview(productDiscountsHeader)
-        contentView.addSubview(productDiscountsValue)
-        
-        contentView.addSubview(promocodesHeader)
-        contentView.addSubview(promocodesValue)
-        
-        contentView.addSubview(paymentMethodHeader)
-        contentView.addSubview(paymentMethodValue)
-        
-        contentView.addSubview(lineTotalHeader)
-        contentView.addSubview(lineTotalValue)
-        
-        contentView.addSubview(checkoutButton)
+        backgroundColor = UIColor(named: "ColorNewGray")
+
+        addSubview(priceProductsHeader)
+        addSubview(priceProductsValue)
+
+        addSubview(productDiscountsHeader)
+        addSubview(productDiscountsValue)
+
+        addSubview(promocodesHeader)
+        addSubview(promocodesValue)
+
+        addSubview(paymentMethodHeader)
+        addSubview(paymentMethodValue)
+
+        addSubview(lineTotalHeader)
+        addSubview(lineTotalValue)
+
+        addSubview(checkoutButton)
         
         priceProductsHeader.translatesAutoresizingMaskIntoConstraints = false
         priceProductsValue.translatesAutoresizingMaskIntoConstraints = false
@@ -164,48 +166,48 @@ class TotalCell: UITableViewCell {
         checkoutButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            priceProductsHeader.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 24),
-            priceProductsHeader.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 32),
+            priceProductsHeader.topAnchor.constraint(equalTo: topAnchor, constant: 24),
+            priceProductsHeader.leftAnchor.constraint(equalTo: leftAnchor, constant: 32),
             
-            priceProductsValue.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 24),
-            priceProductsValue.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -32),
+            priceProductsValue.topAnchor.constraint(equalTo: topAnchor, constant: 24),
+            priceProductsValue.rightAnchor.constraint(equalTo: rightAnchor, constant: -32),
             
             productDiscountsHeader.topAnchor.constraint(equalTo: priceProductsHeader.bottomAnchor, constant: 10),
-            productDiscountsHeader.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 32),
+            productDiscountsHeader.leftAnchor.constraint(equalTo: leftAnchor, constant: 32),
             
             productDiscountsValue.topAnchor.constraint(equalTo: priceProductsValue.bottomAnchor, constant: 10),
-            productDiscountsValue.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -32),
-            
+            productDiscountsValue.rightAnchor.constraint(equalTo: rightAnchor, constant: -32),
+
             promocodesHeader.topAnchor.constraint(equalTo: productDiscountsHeader.bottomAnchor, constant: 10),
-            promocodesHeader.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 32),
+            promocodesHeader.leftAnchor.constraint(equalTo: leftAnchor, constant: 32),
             
             promocodesValue.topAnchor.constraint(equalTo: productDiscountsValue.bottomAnchor, constant: 10),
-            promocodesValue.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -32),
+            promocodesValue.rightAnchor.constraint(equalTo: rightAnchor, constant: -32),
             
             paymentMethodHeader.topAnchor.constraint(equalTo: promocodesHeader.bottomAnchor, constant: 10),
-            paymentMethodHeader.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 32),
+            paymentMethodHeader.leftAnchor.constraint(equalTo: leftAnchor, constant: 32),
             
             paymentMethodValue.topAnchor.constraint(equalTo: promocodesValue.bottomAnchor, constant: 10),
-            paymentMethodValue.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -32),
+            paymentMethodValue.rightAnchor.constraint(equalTo: rightAnchor, constant: -32),
             
             lineTotalHeader.topAnchor.constraint(equalTo: paymentMethodHeader.bottomAnchor, constant: 32),
-            lineTotalHeader.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 32),
+            lineTotalHeader.leftAnchor.constraint(equalTo: leftAnchor, constant: 32),
             
             lineTotalValue.topAnchor.constraint(equalTo: paymentMethodValue.bottomAnchor, constant: 32),
-            lineTotalValue.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -32),
+            lineTotalValue.rightAnchor.constraint(equalTo: rightAnchor, constant: -32),
             
-            checkoutButton.topAnchor.constraint(equalTo: lineTotalValue.bottomAnchor, constant: 16),
-            checkoutButton.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 32),
-            checkoutButton.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -32),
+            checkoutButton.topAnchor.constraint(equalTo: lineTotalHeader.bottomAnchor, constant: 16),
+            checkoutButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 32),
+            checkoutButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -32),
             checkoutButton.heightAnchor.constraint(equalToConstant: 54)
         ])
     }
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setupUI()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

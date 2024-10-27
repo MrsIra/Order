@@ -16,12 +16,37 @@ class CircleView: UIView {
 }
 
 class PromocodeCell: UITableViewCell {
-    var viewModel: TableViewModel.ViewModelType.Promocode? {
+    var promocode: Order.Promocode? {
         didSet {
             updateUI()
         }
     }
-    
+
+    var togglePromo: ((String) -> ())?
+
+    private func updateUI() {
+        guard let promocode else { return }
+
+        promocodeLabel.text = promocode.title
+        switchButton.isOn = promocode.active
+        dateLabel.text = formattedDate(promocode.endDate)
+        discountLabel.text = "-\(promocode.percent)%"
+
+        if let infoText = promocode.info {
+            infoLabel.text = infoText
+            infoLabel.isHidden = false
+        } else {
+            infoLabel.isHidden = true
+        }
+    }
+
+    func formattedDate(_ date: Date?) -> String {
+        guard let date = date else { return "" }
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        return formatter.string(from: date)
+    }
+
     private lazy var promocodeTableCell: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(named: "ColorNewGray")
@@ -101,24 +126,8 @@ class PromocodeCell: UITableViewCell {
     }()
     
     @objc func toggle() {
-        guard let viewModel else { return }
-        viewModel.toggle?(switchButton.isOn, viewModel.id)
-    }
-    
-    private func updateUI() {
-        guard let viewModel else { return }
-        
-        promocodeLabel.text = viewModel.title
-        switchButton.isOn = viewModel.active
-        dateLabel.text = viewModel.endDate
-        discountLabel.text = viewModel.percent
-        
-        if let infoText = viewModel.info {
-            infoLabel.text = infoText
-            infoLabel.isHidden = false
-        } else {
-            infoLabel.isHidden = true
-        }
+        guard let promocode else { return }
+        togglePromo?(promocode.id)
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -184,6 +193,7 @@ class PromocodeCell: UITableViewCell {
             
             discountLabel.leadingAnchor.constraint(equalTo: promocodeLabel.trailingAnchor, constant: 4),
             discountLabel.topAnchor.constraint(equalTo: mainInfoCell.topAnchor),
+            discountLabel.widthAnchor.constraint(equalToConstant: 40),
             
             infoButton.centerYAnchor.constraint(equalTo: discountLabel.centerYAnchor),
             infoButton.leadingAnchor.constraint(equalTo: discountLabel.trailingAnchor, constant: 4),
