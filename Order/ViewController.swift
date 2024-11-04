@@ -20,7 +20,9 @@ class ViewModel {
     var testOrder = Order(
         promocodes: [
             Order.Promocode(id: "1", title: "HELLO", percent: 5, endDate: Date(), info: "Промокод действует на первый заказ в приложении", active: false),
-            Order.Promocode(id: "2", title: "4300162112534", percent: 5, endDate: Date(), info: "Скидка на второй заказ", active: false)
+            Order.Promocode(id: "2", title: "4300162112534", percent: 5, endDate: Date(), info: "Скидка на второй заказ", active: false),
+            Order.Promocode(id: "3", title: "HELLO", percent: 15, endDate: Date(), info: "Промокод действует на первый заказ в приложении", active: false),
+            Order.Promocode(id: "4", title: "4300162112534", percent: 5, endDate: Date(), info: "Скидка на второй заказ", active: false)
         ],
         products: [
             Order.Product(price: 25000, title: "Product 1"),
@@ -45,12 +47,13 @@ class ViewModel {
     
     func togglePromo(id: String) {
         if let index = testOrder.promocodes.firstIndex(where: { $0.id == id }) {
+            //            print("hello")
             testOrder.promocodes[index].active.toggle()
             update?(testOrder)
         }
     }
     
-    func calculateTotal(order: Order) -> Double {
+    private func calculateTotal(order: Order) -> Double {
         var totalSumProducts = 0.0
         var amountProducts: Int = 0
         for product in order.products {
@@ -58,7 +61,7 @@ class ViewModel {
             amountProducts += 1
         }
         
-        return totalSumProducts//; amountProducts
+        return totalSumProducts
     }
     
     func totalCalculation(order: Order) -> Result {
@@ -78,7 +81,7 @@ class ViewModel {
         
         let price = totalSumProducts - (order.baseDiscount ?? 0) - (order.paymentDiscount ?? 0) - promocodesDiscount
         
-        var result = Result(totalSumProducts: totalSumProducts, amountProducts: amountProducts, baseDiscount: order.baseDiscount, paymentDiscount: order.paymentDiscount, promocodesDiscount: promocodesDiscount, price: price)
+        let result = Result(totalSumProducts: totalSumProducts, amountProducts: amountProducts, baseDiscount: order.baseDiscount, paymentDiscount: order.paymentDiscount, promocodesDiscount: promocodesDiscount, price: price)
         
         return result
     }
@@ -89,42 +92,75 @@ class ViewController: UIViewController {
         static let mainTitle = "Оформление заказа"
         static let title = "Промокоды"
         static let subtitle = "На один товар можно применить только один промокод"
-
+        
         static let promoButtonImage = UIImage(named: "ImagePromo")
         static let promoButtonTitle = "Применить промокод"
         static let promoButtonBgColorName = "ColorNewPromo"
         static let promoButtonTintColorName = "ColorNewTitlePromo"
     }
-
-    let viewModel: ViewModel = ViewModel()
+    
+    private let viewModel: ViewModel = ViewModel()
     
     private lazy var scrollView: UIScrollView = {
-            let scrollView = UIScrollView()
-//        scrollView.backgroundColor = .red
-            return scrollView
-        }()
-    
-    private lazy var headerLabel: UILabel = {
-        let label = UILabel()
-        label.text = Constants.mainTitle
-        label.textAlignment = .center
-        label.textColor = UIColor.black
-        label.numberOfLines = 0
-        return label
+        let scrollView = UIScrollView()
+        return scrollView
     }()
-
+    
     private lazy var headerView: HeaderView = {
         HeaderView()
     }()
-
+    
     private lazy var totalView: TotalView = {
         TotalView()
     }()
     
     private lazy var buttonPromocode: ButtonPromocode = {
         let buttonPromocode = ButtonPromocode()
-        buttonPromocode.addTarget(self, action: #selector(applyButtonTapped), for: .touchUpInside)
         return buttonPromocode
+    }()
+    
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.backgroundColor = .clear
+        tableView.register(PromocodeCell.self, forCellReuseIdentifier: String(describing: PromocodeCell.self))
+        tableView.separatorStyle = .none
+        return tableView
+    }()
+    
+    private lazy var hideButton: UIButton = {
+        let hideButton = UIButton()
+        hideButton.setTitle("Скрыть промокоды", for: .normal)
+        hideButton.setTitleColor(UIColor(named: "ColorNewTitlePromo"), for: .normal)
+        hideButton.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 16)
+        hideButton.addTarget(self, action: #selector(hidePromoCodes), for: .touchUpInside)
+        return hideButton
+    }()
+    
+    var shouldShowAllCells = true
+    
+    @objc func hidePromoCodes () {
+        shouldShowAllCells = false
+        tableView.reloadData()
+    }
+    
+    
+//    let
+//    let hideButton = UIButton(type: .system)
+//    hideButton.setTitle("Скрыть", for: .normal)
+//    hideButton.addTarget(self, action: #selector(hideCells), for: .touchUpInside)
+//    hideButton.frame = CGRect(x: 15, y: 10, width: footerView.bounds.size.width - 30, height: 30)
+//    footerView.addSubview(hideButton)
+//    tableView.tableFooterView = footerView
+    private func showOrder(order: Order) {
+        tableView.reloadData()
+        totalView.result = viewModel.totalCalculation(order: order)
+    }
+    
+    private lazy var stackView: UIStackView = {
+        let stackView = UIStackView()
+        return stackView
     }()
     
     private lazy var intervalView: UIView = {
@@ -133,45 +169,25 @@ class ViewController: UIViewController {
         return intervalView
     }()
     
-    private lazy var tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.backgroundColor = .clear
-//        tableView.register(HeaderCell.self, forCellReuseIdentifier: String(describing: HeaderCell.self))
-        tableView.register(PromocodeCell.self, forCellReuseIdentifier: String(describing: PromocodeCell.self))
-//        tableView.register(ButtonPromocode.self, forCellReuseIdentifier: String(describing: ButtonPromocode.self))
-//        tableView.register(TotalCell.self, forCellReuseIdentifier: String(describing: TotalCell.self))
-        tableView.separatorStyle = .none
-        return tableView
-    }()
-    
-    func showOrder(order: Order) {
-        tableView.reloadData()
-        totalView.result = viewModel.totalCalculation(order: order)
-    }
-    
-    private lazy var stackView: UIStackView = {
-        let stackView = UIStackView()
-//        stackView.backgroundColor = .blue
-        return stackView
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        self.navigationItem.title = Constants.mainTitle
         
         viewModel.update = { [weak self] newOrder in
             self?.showOrder(order: newOrder)
         }
-        //view = scrollView
+        
+        buttonPromocode.onApplyButtonTapped = { [weak self] in
+            let secondViewController = SecondViewController()
+            self?.present(secondViewController, animated: true, completion: nil)
+        }
+        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 50))
+        
         view.addSubview(scrollView)
         
-        scrollView.addSubview(headerLabel)
-        
-        stackView.axis = .vertical
-        stackView.spacing = 10
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        
         scrollView.addSubview(stackView)
         
         stackView.addSubview(intervalView)
@@ -180,16 +196,15 @@ class ViewController: UIViewController {
         stackView.addSubview(tableView)
         stackView.addSubview(totalView)
         
-        tableView.isScrollEnabled = false
+        //        tableView.isScrollEnabled = false
         
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        headerLabel.translatesAutoresizingMaskIntoConstraints = false
         intervalView.translatesAutoresizingMaskIntoConstraints = false
         headerView.translatesAutoresizingMaskIntoConstraints = false
         buttonPromocode.translatesAutoresizingMaskIntoConstraints = false
         tableView.translatesAutoresizingMaskIntoConstraints = false
         totalView.translatesAutoresizingMaskIntoConstraints = false
-                
+        
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             scrollView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
@@ -201,53 +216,34 @@ class ViewController: UIViewController {
             stackView.leftAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.leftAnchor),
             stackView.rightAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.rightAnchor),
             stackView.bottomAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.bottomAnchor),
+            stackView.heightAnchor.constraint(equalTo: scrollView.heightAnchor),
             
-            headerLabel.topAnchor.constraint(equalTo: stackView.safeAreaLayoutGuide.topAnchor),
-            headerLabel.leftAnchor.constraint(equalTo: stackView.safeAreaLayoutGuide.leftAnchor),
-            headerLabel.rightAnchor.constraint(equalTo: stackView.safeAreaLayoutGuide.rightAnchor),
-
-            intervalView.topAnchor.constraint(equalTo: headerLabel.bottomAnchor),
+            intervalView.topAnchor.constraint(equalTo: stackView.topAnchor),
             intervalView.leftAnchor.constraint(equalTo: stackView.safeAreaLayoutGuide.leftAnchor),
             intervalView.rightAnchor.constraint(equalTo: stackView.safeAreaLayoutGuide.rightAnchor),
             intervalView.heightAnchor.constraint(equalToConstant: 16),
-
-            headerView.topAnchor.constraint(equalTo: intervalView.bottomAnchor),
+            
+            headerView.topAnchor.constraint(equalTo: intervalView.bottomAnchor, constant: 8),
             headerView.leftAnchor.constraint(equalTo: stackView.safeAreaLayoutGuide.leftAnchor),
             headerView.rightAnchor.constraint(equalTo: stackView.safeAreaLayoutGuide.rightAnchor),
-
+            
             buttonPromocode.topAnchor.constraint(equalTo: headerView.bottomAnchor),
             buttonPromocode.leftAnchor.constraint(equalTo: stackView.safeAreaLayoutGuide.leftAnchor),
             buttonPromocode.rightAnchor.constraint(equalTo: stackView.safeAreaLayoutGuide.rightAnchor),
             buttonPromocode.heightAnchor.constraint(equalToConstant: 54),
-
+            
             tableView.topAnchor.constraint(equalTo: buttonPromocode.bottomAnchor),
             tableView.leftAnchor.constraint(equalTo: stackView.safeAreaLayoutGuide.leftAnchor),
             tableView.rightAnchor.constraint(equalTo: stackView.safeAreaLayoutGuide.rightAnchor),
-            tableView.bottomAnchor.constraint(equalTo: totalView.topAnchor),
             tableView.heightAnchor.constraint(equalToConstant: 320),
-
-//            totalView.topAnchor.constraint(equalTo: tableView.bottomAnchor),
+            
+            totalView.topAnchor.constraint(equalTo: tableView.bottomAnchor),
             totalView.heightAnchor.constraint(equalToConstant: 300),
             totalView.leftAnchor.constraint(equalTo: stackView.safeAreaLayoutGuide.leftAnchor),
-            totalView.rightAnchor.constraint(equalTo: stackView.safeAreaLayoutGuide.rightAnchor),
-            totalView.bottomAnchor.constraint(equalTo: stackView.bottomAnchor)
+            totalView.rightAnchor.constraint(equalTo: stackView.safeAreaLayoutGuide.rightAnchor)
         ])
         
         showOrder(order: viewModel.testOrder)
-    }
-    
-    @objc private func applyButtonTapped() {
-        print("hello")
-        present(ViewController(), animated: true)
-//        let secondViewController = SecondViewController()
-//        navigationController?.pushViewController(secondViewController, animated: true)
-    }
-}
-
-extension ViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
     }
 }
 
@@ -257,49 +253,19 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        switch viewModel.type {
-//        case .promocode(let promo):
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: PromocodeCell.self)) as? PromocodeCell else {
-                return UITableViewCell()
-            }
-
-            cell.promocode = viewModel.testOrder.promocodes[indexPath.row]
-            cell.togglePromo = { [weak self] id in
-                self?.viewModel.togglePromo(id: id)
-            }
-            cell.selectionStyle = .none
-            return cell
-//        
-//        case .info(let info):
-//            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: HeaderCell.self)) as? HeaderCell else {
-//                return UITableViewCell()
-//            }
-//            cell.viewModel = info
-//            cell.selectionStyle = .none
-//            return cell
-//            
-//        case .result(let result):
-//            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TotalCell.self)) as? TotalCell else {
-//                return UITableViewCell()
-//            }
-//            cell.viewModel = result
-//            cell.selectionStyle = .none
-//            return cell
-//            
-//        case .button(let button):
-//            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ButtonPromocode.self)) as? ButtonPromocode else {
-//                return UITableViewCell()
-//            }
-//
-//            cell.viewModel = button
-//            cell.selectionStyle = .none
-//            return cell
-//        }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: PromocodeCell.self)) as? PromocodeCell else {
+            return UITableViewCell()
+        }
         
-        return UITableViewCell()
+        cell.promocode = viewModel.testOrder.promocodes[indexPath.row]
+        cell.togglePromo = { [weak self] id in
+            self?.viewModel.togglePromo(id: id)
+        }
+        cell.selectionStyle = .none
+        return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        
+//    }
 }

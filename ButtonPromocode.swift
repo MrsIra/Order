@@ -1,6 +1,9 @@
 import UIKit
 
 class ButtonPromocode: UIButton {
+    
+    var onApplyButtonTapped: (() -> (Void))?
+    
     private lazy var applyPromocodeButton: UIButton = {
         let button = UIButton()
         button.setTitle("Применить промокод", for: .normal)
@@ -9,9 +12,11 @@ class ButtonPromocode: UIButton {
             button.setImage(image, for: .normal)
             button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 10)
         }
+                button.addTarget(self, action: #selector(applyButtonTapped), for: .touchUpInside)
+        
         button.titleLabel?.font = UIFont(name: "Roboto", size: 16)
         button.backgroundColor = UIColor(named: "ColorNewPromo")
-        button.layer.cornerRadius = 10
+        button.layer.cornerRadius = 12
         return button
     }()
     
@@ -26,6 +31,10 @@ class ButtonPromocode: UIButton {
             applyPromocodeButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
             applyPromocodeButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8)
         ])
+    }
+    
+    @objc func applyButtonTapped() {
+        onApplyButtonTapped?()
     }
     
     override init(frame: CGRect) {

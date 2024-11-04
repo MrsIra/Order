@@ -15,15 +15,13 @@ class TotalView: UIView {
         return label
     }()
     
-    private lazy var priceProductsValue: UILabel = defaultLabel()
-
-    var defaultLabel = {
+    private lazy var priceProductsValue: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.font = UIFont(name: "Roboto", size: 14)
         return label
-    }
-
+    }()
+    
     private lazy var productDiscountsHeader: UILabel = {
         let label = UILabel()
         label.text = "Скидки"
@@ -43,7 +41,6 @@ class TotalView: UIView {
         let label = UILabel()
         label.text = "Промокоды"
         label.textColor = .black
-//        label.backgroundColor = UIColor(named: "ColorNewGray")
         label.font = UIFont(name: "Roboto", size: 14)
         return label
     }()
@@ -114,13 +111,13 @@ class TotalView: UIView {
         
         priceProductsHeader.text = "Цена за \(result.amountProducts) \(declensionWord)"
         priceProductsValue.text = "\(result.price)"
-
+        
         if let baseDiscount = result.baseDiscount {
             productDiscountsValue.text = "\(baseDiscount)"
         }
         
         promocodesValue.text = "\(result.promocodesDiscount)"
-
+        
         if let paymentDiscount = result.paymentDiscount {
             paymentMethodValue.text = "\(paymentDiscount)"
         }
@@ -130,22 +127,22 @@ class TotalView: UIView {
     
     private func setupUI() {
         backgroundColor = UIColor(named: "ColorNewGray")
-
+        
         addSubview(priceProductsHeader)
         addSubview(priceProductsValue)
-
+        
         addSubview(productDiscountsHeader)
         addSubview(productDiscountsValue)
-
+        
         addSubview(promocodesHeader)
         addSubview(promocodesValue)
-
+        
         addSubview(paymentMethodHeader)
         addSubview(paymentMethodValue)
-
+        
         addSubview(lineTotalHeader)
         addSubview(lineTotalValue)
-
+        
         addSubview(checkoutButton)
         
         priceProductsHeader.translatesAutoresizingMaskIntoConstraints = false
@@ -177,7 +174,7 @@ class TotalView: UIView {
             
             productDiscountsValue.topAnchor.constraint(equalTo: priceProductsValue.bottomAnchor, constant: 10),
             productDiscountsValue.rightAnchor.constraint(equalTo: rightAnchor, constant: -32),
-
+            
             promocodesHeader.topAnchor.constraint(equalTo: productDiscountsHeader.bottomAnchor, constant: 10),
             promocodesHeader.leftAnchor.constraint(equalTo: leftAnchor, constant: 32),
             
@@ -207,7 +204,7 @@ class TotalView: UIView {
         super.init(frame: frame)
         setupUI()
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

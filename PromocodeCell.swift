@@ -40,7 +40,7 @@ class PromocodeCell: UITableViewCell {
         }
     }
 
-    func formattedDate(_ date: Date?) -> String {
+    private func formattedDate(_ date: Date?) -> String {
         guard let date = date else { return "" }
         let formatter = DateFormatter()
         formatter.dateStyle = .long
@@ -68,6 +68,7 @@ class PromocodeCell: UITableViewCell {
     
     private lazy var mainInfoCell: UIView = {
         let view = UIView()
+        view.backgroundColor = .yellow
         return view
     }()
     
@@ -139,7 +140,7 @@ class PromocodeCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupUI() {
+    private func setupUI() {
         contentView.addSubview(promocodeTableCell)
         contentView.addSubview(circleLeft)
         contentView.addSubview(circleRight)
@@ -193,7 +194,7 @@ class PromocodeCell: UITableViewCell {
             
             discountLabel.leadingAnchor.constraint(equalTo: promocodeLabel.trailingAnchor, constant: 4),
             discountLabel.topAnchor.constraint(equalTo: mainInfoCell.topAnchor),
-            discountLabel.widthAnchor.constraint(equalToConstant: 40),
+//            discountLabel.widthAnchor.constraint(equalToConstant: 40),
             
             infoButton.centerYAnchor.constraint(equalTo: discountLabel.centerYAnchor),
             infoButton.leadingAnchor.constraint(equalTo: discountLabel.trailingAnchor, constant: 4),
