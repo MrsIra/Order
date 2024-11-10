@@ -12,8 +12,6 @@
 		2A21718E2CBE520D008C4604 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A21718C2CBE520D008C4604 /* Main.storyboard */; };
 		2A2171902CBE520F008C4604 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A21718F2CBE520F008C4604 /* Assets.xcassets */; };
 		2A2171932CBE520F008C4604 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A2171912CBE520F008C4604 /* LaunchScreen.storyboard */; };
-		2A2171AB2CCDF486008C4604 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2171AA2CCDF486008C4604 /* SecondViewController.swift */; };
-		2A2171AF2CD207A1008C4604 /* TextFieldCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2171AE2CD207A1008C4604 /* TextFieldCustom.swift */; };
 		2A2171B12CD3787C008C4604 /* ProductSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2171B02CD3787C008C4604 /* ProductSelectionViewController.swift */; };
 		2A2171B32CD38490008C4604 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2171B22CD38490008C4604 /* ProductCell.swift */; };
 		2A2171B52CD50D53008C4604 /* WriteReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2171B42CD50D53008C4604 /* WriteReviewViewController.swift */; };
@@ -37,6 +35,8 @@
 		2A2171F62CE0F746008C4604 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2171F52CE0F746008C4604 /* HeaderView.swift */; };
 		2A2171F82CE0F76D008C4604 /* PromocodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2171F72CE0F76D008C4604 /* PromocodeCell.swift */; };
 		2A2171FA2CE0F79A008C4604 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2171F92CE0F79A008C4604 /* Order.swift */; };
+		2A2172002CE13B9C008C4604 /* ApplyPromocodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2171FF2CE13B9C008C4604 /* ApplyPromocodeViewController.swift */; };
+		2A2172022CE13BDF008C4604 /* TextFieldCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2172012CE13BDF008C4604 /* TextFieldCustom.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,8 +47,6 @@
 		2A21718F2CBE520F008C4604 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2A2171922CBE520F008C4604 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2A2171942CBE520F008C4604 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2A2171AA2CCDF486008C4604 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SecondViewController.swift; path = "Order/Apply Promocode ScreenApply Promocode Screen/SecondViewController.swift"; sourceTree = SOURCE_ROOT; };
-		2A2171AE2CD207A1008C4604 /* TextFieldCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TextFieldCustom.swift; path = "Order/Apply Promocode ScreenApply Promocode Screen/TextFieldCustom.swift"; sourceTree = SOURCE_ROOT; };
 		2A2171B02CD3787C008C4604 /* ProductSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProductSelectionViewController.swift; path = "Order/Review Screen/Product List Screen/ProductSelectionViewController.swift"; sourceTree = SOURCE_ROOT; };
 		2A2171B22CD38490008C4604 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProductCell.swift; path = "Order/Review Screen/Product List Screen/ProductCell.swift"; sourceTree = SOURCE_ROOT; };
 		2A2171B42CD50D53008C4604 /* WriteReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WriteReviewViewController.swift; path = "Order/Review Screen/Write Review Screen/ViewControllers/WriteReviewViewController.swift"; sourceTree = SOURCE_ROOT; };
@@ -72,6 +70,8 @@
 		2A2171F52CE0F746008C4604 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		2A2171F72CE0F76D008C4604 /* PromocodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromocodeCell.swift; sourceTree = "<group>"; };
 		2A2171F92CE0F79A008C4604 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		2A2171FF2CE13B9C008C4604 /* ApplyPromocodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyPromocodeViewController.swift; sourceTree = "<group>"; };
+		2A2172012CE13BDF008C4604 /* TextFieldCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCustom.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +106,7 @@
 			children = (
 				2A2171D72CDE070D008C4604 /* Promocode Input Screen */,
 				2A2171D62CDE064F008C4604 /* Review Screen */,
-				2A2171D52CDE0609008C4604 /* Apply Promocode ScreenApply Promocode Screen */,
+				2A2171D52CDE0609008C4604 /* Apply Promocode Screen */,
 				2A2171862CBE520D008C4604 /* AppDelegate.swift */,
 				2A2171882CBE520D008C4604 /* SceneDelegate.swift */,
 				2A21718C2CBE520D008C4604 /* Main.storyboard */,
@@ -117,13 +117,13 @@
 			path = Order;
 			sourceTree = "<group>";
 		};
-		2A2171D52CDE0609008C4604 /* Apply Promocode ScreenApply Promocode Screen */ = {
+		2A2171D52CDE0609008C4604 /* Apply Promocode Screen */ = {
 			isa = PBXGroup;
 			children = (
-				2A2171AA2CCDF486008C4604 /* SecondViewController.swift */,
-				2A2171AE2CD207A1008C4604 /* TextFieldCustom.swift */,
+				2A2171FF2CE13B9C008C4604 /* ApplyPromocodeViewController.swift */,
+				2A2172012CE13BDF008C4604 /* TextFieldCustom.swift */,
 			);
-			path = "Apply Promocode ScreenApply Promocode Screen";
+			path = "Apply Promocode Screen";
 			sourceTree = "<group>";
 		};
 		2A2171D62CDE064F008C4604 /* Review Screen */ = {
@@ -299,11 +299,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A2171DC2CDE14D5008C4604 /* ProductSelectionViewModel.swift in Sources */,
-				2A2171AB2CCDF486008C4604 /* SecondViewController.swift in Sources */,
 				2A2171D32CDCA36C008C4604 /* CollectionView.swift in Sources */,
+				2A2172022CE13BDF008C4604 /* TextFieldCustom.swift in Sources */,
 				2A2171B52CD50D53008C4604 /* WriteReviewViewController.swift in Sources */,
 				2A2171CF2CD89145008C4604 /* CheckBoxButtonCell.swift in Sources */,
 				2A2171B92CD61006008C4604 /* TitleImageTextCell.swift in Sources */,
+				2A2172002CE13B9C008C4604 /* ApplyPromocodeViewController.swift in Sources */,
 				2A2171F22CE0F573008C4604 /* PromocodeInputViewController.swift in Sources */,
 				2A2171EF2CE0F4B3008C4604 /* TotalView.swift in Sources */,
 				2A2171872CBE520D008C4604 /* AppDelegate.swift in Sources */,
@@ -311,7 +312,6 @@
 				2A2171CB2CD7C49F008C4604 /* AddingPhotoCell.swift in Sources */,
 				2A2171D12CDBB117008C4604 /* SendFeedbackButtonCell.swift in Sources */,
 				2A2171FA2CE0F79A008C4604 /* Order.swift in Sources */,
-				2A2171AF2CD207A1008C4604 /* TextFieldCustom.swift in Sources */,
 				2A2171EB2CE0C4AD008C4604 /* CircleView.swift in Sources */,
 				2A2171892CBE520D008C4604 /* SceneDelegate.swift in Sources */,
 				2A2171ED2CE0E7D1008C4604 /* ApplyPromocodeButton.swift in Sources */,

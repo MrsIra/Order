@@ -63,8 +63,8 @@ class PromocodeInputViewController: UIViewController {
         }
 
         applyPromocodeButton.onApplyButtonTapped = { [weak self] in
-            let secondViewController = SecondViewController()
-            self?.navigationController?.pushViewController(secondViewController, animated: true)
+            let applyPromocodeViewController = ApplyPromocodeViewController()
+            self?.navigationController?.pushViewController(applyPromocodeViewController, animated: true)
         }
         
         addSubviews()

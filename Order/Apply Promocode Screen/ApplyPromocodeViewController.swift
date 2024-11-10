@@ -1,6 +1,6 @@
 import UIKit
 
-class SecondViewController: UIViewController {
+class ApplyPromocodeViewController: UIViewController {
     private enum Conctants {
         static let titleButton: String = "Применить"
         static let backgroundColorButton: UIColor = UIColor(named: "ColorNewTitlePromo") ?? .clear
