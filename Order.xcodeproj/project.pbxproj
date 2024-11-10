@@ -9,21 +9,14 @@
 /* Begin PBXBuildFile section */
 		2A2171872CBE520D008C4604 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2171862CBE520D008C4604 /* AppDelegate.swift */; };
 		2A2171892CBE520D008C4604 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2171882CBE520D008C4604 /* SceneDelegate.swift */; };
-		2A21718B2CBE520D008C4604 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A21718A2CBE520D008C4604 /* ViewController.swift */; };
 		2A21718E2CBE520D008C4604 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A21718C2CBE520D008C4604 /* Main.storyboard */; };
 		2A2171902CBE520F008C4604 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A21718F2CBE520F008C4604 /* Assets.xcassets */; };
 		2A2171932CBE520F008C4604 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A2171912CBE520F008C4604 /* LaunchScreen.storyboard */; };
-		2A21719D2CCC1F10008C4604 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A21719C2CCC1F10008C4604 /* Order.swift */; };
-		2A2171A32CCCB739008C4604 /* PromocodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2171A22CCCB739008C4604 /* PromocodeCell.swift */; };
-		2A2171A52CCCEDB9008C4604 /* ButtonPromocode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2171A42CCCEDB9008C4604 /* ButtonPromocode.swift */; };
-		2A2171A72CCCF147008C4604 /* TotalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2171A62CCCF147008C4604 /* TotalCell.swift */; };
-		2A2171A92CCCF191008C4604 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2171A82CCCF191008C4604 /* HeaderCell.swift */; };
 		2A2171AB2CCDF486008C4604 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2171AA2CCDF486008C4604 /* SecondViewController.swift */; };
 		2A2171AF2CD207A1008C4604 /* TextFieldCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2171AE2CD207A1008C4604 /* TextFieldCustom.swift */; };
-		2A2171B12CD3787C008C4604 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2171B02CD3787C008C4604 /* CommentViewController.swift */; };
-		2A2171B32CD38490008C4604 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2171B22CD38490008C4604 /* CommentCell.swift */; };
-		2A2171B52CD50D53008C4604 /* WritingCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2171B42CD50D53008C4604 /* WritingCommentViewController.swift */; };
-		2A2171B72CD5165A008C4604 /* WritingComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2171B62CD5165A008C4604 /* WritingComment.swift */; };
+		2A2171B12CD3787C008C4604 /* ProductSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2171B02CD3787C008C4604 /* ProductSelectionViewController.swift */; };
+		2A2171B32CD38490008C4604 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2171B22CD38490008C4604 /* ProductCell.swift */; };
+		2A2171B52CD50D53008C4604 /* WriteReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2171B42CD50D53008C4604 /* WriteReviewViewController.swift */; };
 		2A2171B92CD61006008C4604 /* TitleImageTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2171B82CD61006008C4604 /* TitleImageTextCell.swift */; };
 		2A2171BB2CD6168F008C4604 /* GradeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2171BA2CD6168F008C4604 /* GradeCell.swift */; };
 		2A2171BD2CD6346D008C4604 /* ReviewTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2171BC2CD6346D008C4604 /* ReviewTextCell.swift */; };
@@ -31,35 +24,54 @@
 		2A2171CB2CD7C49F008C4604 /* AddingPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2171CA2CD7C49F008C4604 /* AddingPhotoCell.swift */; };
 		2A2171CD2CD7EBEA008C4604 /* ButtonAddPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2171CC2CD7EBE9008C4604 /* ButtonAddPhoto.swift */; };
 		2A2171CF2CD89145008C4604 /* CheckBoxButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2171CE2CD89145008C4604 /* CheckBoxButtonCell.swift */; };
+		2A2171D12CDBB117008C4604 /* SendFeedbackButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2171D02CDBB117008C4604 /* SendFeedbackButtonCell.swift */; };
+		2A2171D32CDCA36C008C4604 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2171D22CDCA36C008C4604 /* CollectionView.swift */; };
+		2A2171DC2CDE14D5008C4604 /* ProductSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2171DB2CDE14D5008C4604 /* ProductSelectionViewModel.swift */; };
+		2A2171E32CE08397008C4604 /* ButtonAddImageCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2171E22CE08397008C4604 /* ButtonAddImageCollectionCell.swift */; };
+		2A2171E92CE0C1ED008C4604 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2171E82CE0C1ED008C4604 /* Result.swift */; };
+		2A2171EB2CE0C4AD008C4604 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2171EA2CE0C4AD008C4604 /* CircleView.swift */; };
+		2A2171ED2CE0E7D1008C4604 /* ApplyPromocodeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2171EC2CE0E7D1008C4604 /* ApplyPromocodeButton.swift */; };
+		2A2171EF2CE0F4B3008C4604 /* TotalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2171EE2CE0F4B3008C4604 /* TotalView.swift */; };
+		2A2171F22CE0F573008C4604 /* PromocodeInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2171F12CE0F573008C4604 /* PromocodeInputViewController.swift */; };
+		2A2171F42CE0F5D5008C4604 /* PromocodeInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2171F32CE0F5D5008C4604 /* PromocodeInputViewModel.swift */; };
+		2A2171F62CE0F746008C4604 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2171F52CE0F746008C4604 /* HeaderView.swift */; };
+		2A2171F82CE0F76D008C4604 /* PromocodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2171F72CE0F76D008C4604 /* PromocodeCell.swift */; };
+		2A2171FA2CE0F79A008C4604 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2171F92CE0F79A008C4604 /* Order.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2A2171832CBE520D008C4604 /* Order.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Order.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A2171862CBE520D008C4604 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2A2171882CBE520D008C4604 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2A21718A2CBE520D008C4604 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2A21718D2CBE520D008C4604 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2A21718F2CBE520F008C4604 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2A2171922CBE520F008C4604 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2A2171942CBE520F008C4604 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2A21719C2CCC1F10008C4604 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = SOURCE_ROOT; };
-		2A2171A22CCCB739008C4604 /* PromocodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromocodeCell.swift; sourceTree = SOURCE_ROOT; };
-		2A2171A42CCCEDB9008C4604 /* ButtonPromocode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPromocode.swift; sourceTree = SOURCE_ROOT; };
-		2A2171A62CCCF147008C4604 /* TotalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalCell.swift; sourceTree = SOURCE_ROOT; };
-		2A2171A82CCCF191008C4604 /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = SOURCE_ROOT; };
-		2A2171AA2CCDF486008C4604 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = SOURCE_ROOT; };
-		2A2171AE2CD207A1008C4604 /* TextFieldCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCustom.swift; sourceTree = SOURCE_ROOT; };
-		2A2171B02CD3787C008C4604 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = SOURCE_ROOT; };
-		2A2171B22CD38490008C4604 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = SOURCE_ROOT; };
-		2A2171B42CD50D53008C4604 /* WritingCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingCommentViewController.swift; sourceTree = SOURCE_ROOT; };
-		2A2171B62CD5165A008C4604 /* WritingComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingComment.swift; sourceTree = SOURCE_ROOT; };
-		2A2171B82CD61006008C4604 /* TitleImageTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleImageTextCell.swift; sourceTree = SOURCE_ROOT; };
-		2A2171BA2CD6168F008C4604 /* GradeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeCell.swift; sourceTree = SOURCE_ROOT; };
-		2A2171BC2CD6346D008C4604 /* ReviewTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTextCell.swift; sourceTree = SOURCE_ROOT; };
-		2A2171C22CD677F6008C4604 /* ImageCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionCell.swift; sourceTree = SOURCE_ROOT; };
-		2A2171CA2CD7C49F008C4604 /* AddingPhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddingPhotoCell.swift; sourceTree = SOURCE_ROOT; };
-		2A2171CC2CD7EBE9008C4604 /* ButtonAddPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonAddPhoto.swift; sourceTree = SOURCE_ROOT; };
-		2A2171CE2CD89145008C4604 /* CheckBoxButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxButtonCell.swift; sourceTree = SOURCE_ROOT; };
+		2A2171AA2CCDF486008C4604 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SecondViewController.swift; path = "Order/Apply Promocode ScreenApply Promocode Screen/SecondViewController.swift"; sourceTree = SOURCE_ROOT; };
+		2A2171AE2CD207A1008C4604 /* TextFieldCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TextFieldCustom.swift; path = "Order/Apply Promocode ScreenApply Promocode Screen/TextFieldCustom.swift"; sourceTree = SOURCE_ROOT; };
+		2A2171B02CD3787C008C4604 /* ProductSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProductSelectionViewController.swift; path = "Order/Review Screen/Product List Screen/ProductSelectionViewController.swift"; sourceTree = SOURCE_ROOT; };
+		2A2171B22CD38490008C4604 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProductCell.swift; path = "Order/Review Screen/Product List Screen/ProductCell.swift"; sourceTree = SOURCE_ROOT; };
+		2A2171B42CD50D53008C4604 /* WriteReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WriteReviewViewController.swift; path = "Order/Review Screen/Write Review Screen/ViewControllers/WriteReviewViewController.swift"; sourceTree = SOURCE_ROOT; };
+		2A2171B82CD61006008C4604 /* TitleImageTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TitleImageTextCell.swift; path = "Order/Review Screen/Write Review Screen/Views/TitleImageTextCell.swift"; sourceTree = SOURCE_ROOT; };
+		2A2171BA2CD6168F008C4604 /* GradeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GradeCell.swift; path = "Order/Review Screen/Write Review Screen/Views/GradeCell.swift"; sourceTree = SOURCE_ROOT; };
+		2A2171BC2CD6346D008C4604 /* ReviewTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReviewTextCell.swift; path = "Order/Review Screen/Write Review Screen/Views/ReviewTextCell.swift"; sourceTree = SOURCE_ROOT; };
+		2A2171C22CD677F6008C4604 /* ImageCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageCollectionCell.swift; path = "Order/Review Screen/Write Review Screen/Views/ImageCollectionCell.swift"; sourceTree = SOURCE_ROOT; };
+		2A2171CA2CD7C49F008C4604 /* AddingPhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddingPhotoCell.swift; path = "Order/Review Screen/Write Review Screen/Views/AddingPhotoCell.swift"; sourceTree = SOURCE_ROOT; };
+		2A2171CC2CD7EBE9008C4604 /* ButtonAddPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ButtonAddPhoto.swift; path = "Order/Review Screen/Write Review Screen/Views/ButtonAddPhoto.swift"; sourceTree = SOURCE_ROOT; };
+		2A2171CE2CD89145008C4604 /* CheckBoxButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CheckBoxButtonCell.swift; path = "Order/Review Screen/Write Review Screen/Views/CheckBoxButtonCell.swift"; sourceTree = SOURCE_ROOT; };
+		2A2171D02CDBB117008C4604 /* SendFeedbackButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SendFeedbackButtonCell.swift; path = "Order/Review Screen/Write Review Screen/Views/SendFeedbackButtonCell.swift"; sourceTree = SOURCE_ROOT; };
+		2A2171D22CDCA36C008C4604 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CollectionView.swift; path = "Order/Review Screen/Write Review Screen/Views/CollectionView.swift"; sourceTree = SOURCE_ROOT; };
+		2A2171DB2CDE14D5008C4604 /* ProductSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSelectionViewModel.swift; sourceTree = "<group>"; };
+		2A2171E22CE08397008C4604 /* ButtonAddImageCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonAddImageCollectionCell.swift; sourceTree = "<group>"; };
+		2A2171E82CE0C1ED008C4604 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		2A2171EA2CE0C4AD008C4604 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
+		2A2171EC2CE0E7D1008C4604 /* ApplyPromocodeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyPromocodeButton.swift; sourceTree = "<group>"; };
+		2A2171EE2CE0F4B3008C4604 /* TotalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalView.swift; sourceTree = "<group>"; };
+		2A2171F12CE0F573008C4604 /* PromocodeInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromocodeInputViewController.swift; sourceTree = "<group>"; };
+		2A2171F32CE0F5D5008C4604 /* PromocodeInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromocodeInputViewModel.swift; sourceTree = "<group>"; };
+		2A2171F52CE0F746008C4604 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		2A2171F72CE0F76D008C4604 /* PromocodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromocodeCell.swift; sourceTree = "<group>"; };
+		2A2171F92CE0F79A008C4604 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,33 +104,127 @@
 		2A2171852CBE520D008C4604 /* Order */ = {
 			isa = PBXGroup;
 			children = (
-				2A2171CE2CD89145008C4604 /* CheckBoxButtonCell.swift */,
-				2A2171CC2CD7EBE9008C4604 /* ButtonAddPhoto.swift */,
-				2A2171CA2CD7C49F008C4604 /* AddingPhotoCell.swift */,
-				2A2171C22CD677F6008C4604 /* ImageCollectionCell.swift */,
-				2A2171BC2CD6346D008C4604 /* ReviewTextCell.swift */,
-				2A2171BA2CD6168F008C4604 /* GradeCell.swift */,
-				2A2171B82CD61006008C4604 /* TitleImageTextCell.swift */,
-				2A2171B62CD5165A008C4604 /* WritingComment.swift */,
-				2A2171B42CD50D53008C4604 /* WritingCommentViewController.swift */,
-				2A2171B22CD38490008C4604 /* CommentCell.swift */,
-				2A2171B02CD3787C008C4604 /* CommentViewController.swift */,
-				2A2171AE2CD207A1008C4604 /* TextFieldCustom.swift */,
-				2A2171AA2CCDF486008C4604 /* SecondViewController.swift */,
-				2A2171A82CCCF191008C4604 /* HeaderCell.swift */,
-				2A2171A62CCCF147008C4604 /* TotalCell.swift */,
-				2A2171A42CCCEDB9008C4604 /* ButtonPromocode.swift */,
-				2A2171A22CCCB739008C4604 /* PromocodeCell.swift */,
-				2A21719C2CCC1F10008C4604 /* Order.swift */,
+				2A2171D72CDE070D008C4604 /* Promocode Input Screen */,
+				2A2171D62CDE064F008C4604 /* Review Screen */,
+				2A2171D52CDE0609008C4604 /* Apply Promocode ScreenApply Promocode Screen */,
 				2A2171862CBE520D008C4604 /* AppDelegate.swift */,
 				2A2171882CBE520D008C4604 /* SceneDelegate.swift */,
-				2A21718A2CBE520D008C4604 /* ViewController.swift */,
 				2A21718C2CBE520D008C4604 /* Main.storyboard */,
 				2A21718F2CBE520F008C4604 /* Assets.xcassets */,
 				2A2171912CBE520F008C4604 /* LaunchScreen.storyboard */,
 				2A2171942CBE520F008C4604 /* Info.plist */,
 			);
 			path = Order;
+			sourceTree = "<group>";
+		};
+		2A2171D52CDE0609008C4604 /* Apply Promocode ScreenApply Promocode Screen */ = {
+			isa = PBXGroup;
+			children = (
+				2A2171AA2CCDF486008C4604 /* SecondViewController.swift */,
+				2A2171AE2CD207A1008C4604 /* TextFieldCustom.swift */,
+			);
+			path = "Apply Promocode ScreenApply Promocode Screen";
+			sourceTree = "<group>";
+		};
+		2A2171D62CDE064F008C4604 /* Review Screen */ = {
+			isa = PBXGroup;
+			children = (
+				2A2171DA2CDE149C008C4604 /* Product List Screen */,
+				2A2171DD2CDE1581008C4604 /* Write Review Screen */,
+			);
+			path = "Review Screen";
+			sourceTree = "<group>";
+		};
+		2A2171D72CDE070D008C4604 /* Promocode Input Screen */ = {
+			isa = PBXGroup;
+			children = (
+				2A2171E42CE0C0B4008C4604 /* ViewControllers */,
+				2A2171E72CE0C13E008C4604 /* Models */,
+				2A2171E62CE0C125008C4604 /* Views */,
+				2A2171E52CE0C0D2008C4604 /* ViewModels */,
+			);
+			path = "Promocode Input Screen";
+			sourceTree = "<group>";
+		};
+		2A2171DA2CDE149C008C4604 /* Product List Screen */ = {
+			isa = PBXGroup;
+			children = (
+				2A2171B02CD3787C008C4604 /* ProductSelectionViewController.swift */,
+				2A2171DB2CDE14D5008C4604 /* ProductSelectionViewModel.swift */,
+				2A2171B22CD38490008C4604 /* ProductCell.swift */,
+			);
+			path = "Product List Screen";
+			sourceTree = "<group>";
+		};
+		2A2171DD2CDE1581008C4604 /* Write Review Screen */ = {
+			isa = PBXGroup;
+			children = (
+				2A2171FC2CE10478008C4604 /* Views */,
+				2A2171FB2CE10416008C4604 /* ViewControllers */,
+			);
+			path = "Write Review Screen";
+			sourceTree = "<group>";
+		};
+		2A2171E42CE0C0B4008C4604 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2A2171F12CE0F573008C4604 /* PromocodeInputViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		2A2171E52CE0C0D2008C4604 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				2A2171F32CE0F5D5008C4604 /* PromocodeInputViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		2A2171E62CE0C125008C4604 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2A2171EC2CE0E7D1008C4604 /* ApplyPromocodeButton.swift */,
+				2A2171EA2CE0C4AD008C4604 /* CircleView.swift */,
+				2A2171EE2CE0F4B3008C4604 /* TotalView.swift */,
+				2A2171F52CE0F746008C4604 /* HeaderView.swift */,
+				2A2171F72CE0F76D008C4604 /* PromocodeCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2A2171E72CE0C13E008C4604 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2A2171E82CE0C1ED008C4604 /* Result.swift */,
+				2A2171F92CE0F79A008C4604 /* Order.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2A2171FB2CE10416008C4604 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2A2171B42CD50D53008C4604 /* WriteReviewViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		2A2171FC2CE10478008C4604 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2A2171B82CD61006008C4604 /* TitleImageTextCell.swift */,
+				2A2171BA2CD6168F008C4604 /* GradeCell.swift */,
+				2A2171CA2CD7C49F008C4604 /* AddingPhotoCell.swift */,
+				2A2171CC2CD7EBE9008C4604 /* ButtonAddPhoto.swift */,
+				2A2171D22CDCA36C008C4604 /* CollectionView.swift */,
+				2A2171C22CD677F6008C4604 /* ImageCollectionCell.swift */,
+				2A2171E22CE08397008C4604 /* ButtonAddImageCollectionCell.swift */,
+				2A2171BC2CD6346D008C4604 /* ReviewTextCell.swift */,
+				2A2171CE2CD89145008C4604 /* CheckBoxButtonCell.swift */,
+				2A2171D02CDBB117008C4604 /* SendFeedbackButtonCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,27 +298,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A21718B2CBE520D008C4604 /* ViewController.swift in Sources */,
-				2A2171A32CCCB739008C4604 /* PromocodeCell.swift in Sources */,
-				2A2171A52CCCEDB9008C4604 /* ButtonPromocode.swift in Sources */,
+				2A2171DC2CDE14D5008C4604 /* ProductSelectionViewModel.swift in Sources */,
 				2A2171AB2CCDF486008C4604 /* SecondViewController.swift in Sources */,
-				2A2171B52CD50D53008C4604 /* WritingCommentViewController.swift in Sources */,
-				2A2171A72CCCF147008C4604 /* TotalCell.swift in Sources */,
-				2A2171A92CCCF191008C4604 /* HeaderCell.swift in Sources */,
+				2A2171D32CDCA36C008C4604 /* CollectionView.swift in Sources */,
+				2A2171B52CD50D53008C4604 /* WriteReviewViewController.swift in Sources */,
 				2A2171CF2CD89145008C4604 /* CheckBoxButtonCell.swift in Sources */,
 				2A2171B92CD61006008C4604 /* TitleImageTextCell.swift in Sources */,
+				2A2171F22CE0F573008C4604 /* PromocodeInputViewController.swift in Sources */,
+				2A2171EF2CE0F4B3008C4604 /* TotalView.swift in Sources */,
 				2A2171872CBE520D008C4604 /* AppDelegate.swift in Sources */,
-				2A21719D2CCC1F10008C4604 /* Order.swift in Sources */,
+				2A2171E92CE0C1ED008C4604 /* Result.swift in Sources */,
 				2A2171CB2CD7C49F008C4604 /* AddingPhotoCell.swift in Sources */,
+				2A2171D12CDBB117008C4604 /* SendFeedbackButtonCell.swift in Sources */,
+				2A2171FA2CE0F79A008C4604 /* Order.swift in Sources */,
 				2A2171AF2CD207A1008C4604 /* TextFieldCustom.swift in Sources */,
+				2A2171EB2CE0C4AD008C4604 /* CircleView.swift in Sources */,
 				2A2171892CBE520D008C4604 /* SceneDelegate.swift in Sources */,
-				2A2171B12CD3787C008C4604 /* CommentViewController.swift in Sources */,
+				2A2171ED2CE0E7D1008C4604 /* ApplyPromocodeButton.swift in Sources */,
+				2A2171E32CE08397008C4604 /* ButtonAddImageCollectionCell.swift in Sources */,
+				2A2171F62CE0F746008C4604 /* HeaderView.swift in Sources */,
+				2A2171F42CE0F5D5008C4604 /* PromocodeInputViewModel.swift in Sources */,
+				2A2171B12CD3787C008C4604 /* ProductSelectionViewController.swift in Sources */,
 				2A2171CD2CD7EBEA008C4604 /* ButtonAddPhoto.swift in Sources */,
 				2A2171BB2CD6168F008C4604 /* GradeCell.swift in Sources */,
+				2A2171F82CE0F76D008C4604 /* PromocodeCell.swift in Sources */,
 				2A2171BD2CD6346D008C4604 /* ReviewTextCell.swift in Sources */,
 				2A2171C32CD677F6008C4604 /* ImageCollectionCell.swift in Sources */,
-				2A2171B72CD5165A008C4604 /* WritingComment.swift in Sources */,
-				2A2171B32CD38490008C4604 /* CommentCell.swift in Sources */,
+				2A2171B32CD38490008C4604 /* ProductCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

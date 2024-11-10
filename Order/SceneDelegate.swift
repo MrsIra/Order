@@ -18,14 +18,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window2 = UIWindow(windowScene: windowScene)
-        let newViewController = UINavigationController(rootViewController: CommentViewController())
+        let newViewController = UINavigationController(rootViewController: ProductSelectionViewController())
         window2.rootViewController = newViewController
         self.window = window2
         window2.makeKeyAndVisible()
-//        window = UIWindow(windowScene: windowScene)
-//        let navigation = UINavigationController(rootViewController: ViewController())
-//        window?.rootViewController = navigation
-//        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
